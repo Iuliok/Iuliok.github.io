@@ -1,72 +1,288 @@
-<!-- Julija Čalaja EDIf-24/1 -->
 <!DOCTYPE html>
-<!-- <!DOCTYPE html> – nurodo, kad dokumentas yra HTML5 standarte -->
-
 <html lang="lt">
-<!-- <html> – žymi viso HTML dokumento pradžią ir pabaigą -->
 
 <head>
-    <!-- <head> – talpinama informacija apie dokumentą, kuri nėra rodoma naršyklėje (meta duomenys, pavadinimas ir t.t.) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mano CV</title>
 
-    <meta charset="UTF-8">
-    <!-- <meta charset="UTF-8"> – nustato simbolių koduotę, kad lietuviškos raidės būtų atvaizduojamos teisingai -->
+  <meta name="author" content="Julija Čalaja">
+  <meta name="description" content="Julija Čalaja CV puslapis.">
+  <meta name="keywords" content="CV, Julija Čalaja, Dirbtinio intelekto sistemos">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <meta name="viewport"> – užtikrina, kad puslapis prisitaikys prie skirtingų ekranų dydžių (pvz., telefone) -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <title>Document</title>
-    <!-- <title> – tekstas, kuris rodomas naršyklės skirtuko pavadinime -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet">
 </head>
 
-<body>
-    <!-- <body> – viskas, kas yra čia, matoma vartotojui naršyklėje -->
+<body class="index-page">
 
-    <h1>Julija Čalaja</h1>
-    <!-- <h1> – pagrindinė puslapio antraštė, didžiausia svarba -->
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-    <h5>Dirbtinio intelekto sistemos</h5>
-    <!-- <h5> – mažesnė antraštė papildomai informacijai -->
+      <a href="index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">DevFolio</h1>
+      </a>
 
-    <!-- <div> – konteineris, kuris sugrupuoja kelis elementus į vieną bloką -->
-    <div>
-        <p><u>Mėgstu išvažiuoti į gamtą, kai yra geras oras</u></p>
-        <!-- <u> – pabraukia tekstą, tačiau internete pabrauktas tekstas dažnai suprantamas kaip nuoroda, todėl gali klaidinti vartotoją -->
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
 
-        <a href="https://www.w3schools.com/html/" target="_blank">Linkas</a>
-        <!-- <a> – sukuria nuorodą, target="_blank" – atidaro ją naujame lange -->
+    </div>
+  </header>
 
-        <figure>
-            <!-- <figure> – skirtas paveikslėliui ir jo aprašymui pateikti kaip vieną visumą -->
-            <img src="img/download.jpg" alt="Mano svajonių darbo pozicija" width="300">
-            <!-- <img> – atvaizdas; alt – tekstas rodomas, jei paveikslėlis neįkeltas -->
-            <figcaption>Mano svajonių darbo pozicija</figcaption>
-            <!-- <figcaption> – paveikslėlio pavadinimas ar paaiškinimas -->
-        </figure>
+  <main class="main">
+
+    <section id="hero" class="hero section dark-background">
+      <img src="assets/img/hero-img.jpg" alt="">
+      <div class="container d-flex flex-column align-items-center justify-content-center text-center">
+        <h2>Esu Julija Čalaja</h2>
+        <p><span class="typed" data-typed-items="Dirbtinio intelekto sistemų studentė, AI entuziastė, Programuotoja"></span></p>
+      </div>
+    </section>
+
+    <section id="about" class="about section">
+      <div class="container">
+        <div class="row gy-4">
+
+          <div class="col-md-6">
+
+            <div class="row gy-4">
+              <div class="col-lg-5">
+                <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
+              </div>
+
+              <div class="col-lg-7 about-info">
+                <p><strong>Name: </strong> <span>Julija Čalaja</span></p>
+                <p><strong>Profile: </strong> <span>Dirbtinio intelekto sistemų studentė</span></p>
+                <p><strong>Email: </strong> <span>iiuliokk@gmail.com</span></p>
+                <p><strong>Phone: </strong> <span>+37062939466</span></p>
+              </div>
+            </div>
+
+            <div class="skills-content">
+              <h5>Skills</h5>
+
+              <div class="progress">
+                <span class="skill"><span>HTML</span> <i class="val">45%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" style="width:45%"></div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill"><span>CSS</span> <i class="val">35%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" style="width:35%"></div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill"><span>Python</span> <i class="val">40%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" style="width:40%"></div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill"><span>MATLAB</span> <i class="val">70%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" style="width:70%"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="about-me">
+              <h4>About me</h4>
+              <p>
+                Esu antrakursė VILNIUS TECH Dirbtinio intelekto sistemų studentė, kryptingai siekianti žinių apie dirbtinį intelektą, programavimą ir sistemų kūrimą.
+              </p>
+              <p>
+                Turiu stiprų atsakingumo jausmą ir gebu dirbti stabiliai net stresinėse situacijose. Greitai prisitaikau prie naujų užduočių, dirbu organizuotai ir visada siekiu kokybiško rezultato.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" class="resume section">
+      <div class="container section-title">
+        <h2>Resume</h2>
+        <p>Mano išsilavinimas ir profesinė patirtis</p>
+      </div>
+
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-6">
+
+            <h3 class="resume-title">Education</h3>
+
+            <div class="resume-item">
+              <h4>Dirbtinio intelekto sistemų studijos</h4>
+              <h5>2023 – dabar</h5>
+              <p><em>VILNIUS TECH</em></p>
+              <p>Studijuoju programavimą, AI technologijas ir duomenų analizę.</p>
+            </div>
+
+            <div class="resume-item">
+              <h4>MATLAB laboratoriniai darbai</h4>
+              <h5>2023 – 2024</h5>
+              <p><em>VILNIUS TECH</em></p>
+              <p>Atlikau grafikus, funkcijų analizes ir mechaninių charakteristikų braižymą.</p>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <h3 class="resume-title">Professional Experience</h3>
+
+            <div class="resume-item">
+              <h4>Bolt Market – darbuotoja</h4>
+              <h5>2024 – dabar</h5>
+              <p><em>Vilnius</em></p>
+              <ul>
+                <li>Inventorizacija.</li>
+                <li>Prekių rūšiavimas ir išdėstymas.</li>
+                <li>Bendravimas su klientais ir kurjeriais.</li>
+                <li>Užsakymų paruošimas laiku.</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <h4>Akademiniai projektai</h4>
+              <h5>2023 – dabar</h5>
+              <ul>
+                <li>MATLAB duomenų analizė.</li>
+                <li>Python ir C++ užduotys.</li>
+                <li>AI projektai.</li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+<section id="portfolio" class="portfolio section">
+
+  <div class="container section-title">
+    <h2>Portfolio</h2>
+    <p>Mano atliktų MATLAB laboratorinių darbų grafikai</p>
+  </div>
+
+  <div class="container">
+
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item">
+        <img src="assets/img/lab_32.png" alt="3 laboratorinis grafikas 2">
+      </div>
+
+      <div class="portfolio-item">
+        <img src="assets/img/lab_41.png" alt="4 laboratorinis grafikas 1">
+      </div>
+
+      <div class="portfolio-item">
+        <img src="assets/img/lab_42.png" alt="4 laboratorinis grafikas 2">
+      </div>
+
     </div>
 
-    <h3>Domina šios IT / elektronikos sritys:</h3>
-    <!-- <ol> – numeruotas sąrašas -->
-    <ol>
-        <li><strong>Dirbtinio intelekto sistemos</strong></li>
-        <!-- <strong> – paryškina tekstą ir pabrėžia jo svarbą semantiškai (turinio prasme) -->
+  </div>
 
-        <li><b>Kompiuterinė rega ir vaizdų atpažinimas</b></li>
-        <!-- <b> – tik vizualiai paryškina tekstą, nesuteikia prasminės svarbos -->
+</section>
 
-        <li>Robotika ir autonominės sistemos</li>
-    </ol>
 
-    <h3>Įgūdžiai / technologijos, kurias norėčiau išmokti studijų metu:</h3>
-    <!-- <ul> – nenumeruotas sąrašas -->
-    <ul>
-        <li><em>Python gilesnis pritaikymas realiuose projektuose</em></li>
-        <!-- <em> – pasvirina tekstą SEMANTIŠKAI, rodo prasminį akcentą -->
 
-        <li><i>Neuroniniai tinklai ir modelių mokymas</i></li>
-        <!-- <i> – pasvirina tekstą tik vizualiai, be prasminio pabrėžimo -->
+    <section id="contact" class="contact section">
 
-        <li>Arduino / Raspberry Pi projektavimas ir eksperimentai</li>
-    </ul>
+      <div class="container section-title">
+        <h2>Contact</h2>
+        <p>Susisiekti el. paštu arba telefonu</p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4 justify-content-center">
+
+          <div class="col-lg-6">
+            <div class="info-item d-flex">
+              <i class="bi bi-envelope"></i>
+              <div>
+                <h3>Email</h3>
+                <p>iiuliokk@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="info-item d-flex mt-3">
+              <i class="bi bi-telephone"></i>
+              <div>
+                <h3>Phone</h3>
+                <p>+37062939466</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer accent-background">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© Copyright <strong class="px-1 sitename">DevFolio</strong> All Rights Reserved</p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="#"><i class="bi bi-twitter-x"></i></a>
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
 
 </body>
 </html>
