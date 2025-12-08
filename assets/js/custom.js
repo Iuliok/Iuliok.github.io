@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+
   const form = document.getElementById("contactForm");
   const output = document.getElementById("formOutput");
   const avg = document.getElementById("averageResult");
@@ -92,8 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
       patogumas: +form.patogumas.value
     };
 
-    console.log("Formos duomenys:", data);
-
     output.innerHTML = `
       <div class="info-item">
         <p><strong>Vardas:</strong> ${data.vardas}</p>
@@ -101,9 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <p><strong>El. paštas:</strong> ${data.email}</p>
         <p><strong>Tel. numeris:</strong> ${data.telefonas}</p>
         <p><strong>Adresas:</strong> ${data.adresas}</p>
-        <p><strong>Dizaino įvertinimas:</strong> ${data.dizainas}</p>
-        <p><strong>Turinio įvertinimas:</strong> ${data.turinys}</p>
-        <p><strong>Patogumo įvertinimas:</strong> ${data.patogumas}</p>
       </div>
     `;
     output.style.display = "block";
@@ -114,9 +111,156 @@ document.addEventListener("DOMContentLoaded", () => {
     popup.style.display = "flex";
   });
 
-  closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-  });
+  closeBtn.addEventListener("click", () => popup.style.display = "none");
 
   checkFormValidity();
+
+
+  const board = document.getElementById("gameBoard");
+  const movesEl = document.getElementById("moves");
+  const matchesEl = document.getElementById("matches");
+  const winMsg = document.getElementById("winMessage");
+
+  const startBtn = document.getElementById("startGame");
+  const resetBtn = document.getElementById("resetGame");
+  const difficultySelect = document.getElementById("difficulty");
+
+  function updateBestScore() {
+  const key = "best_" + difficultySelect.value;
+  const best = Number(localStorage.getItem(key));
+  document.getElementById("bestScore").textContent = best ? best : "–";
+}
+
+  const levels = {
+  easy:   { pairs: 6,  className: "easy"   }, 
+  hard:   { pairs: 12, className: "hard"   }  
+};
+
+
+  let cards = [];
+  let first = null;
+  let second = null;
+  let lock = false;
+  let moves = 0;
+  let matches = 0;
+
+  let time = 0;
+  let timer = null;
+  const timeEl = document.getElementById("time");
+
+
+const symbols = [
+  "🍎","🍌","🍇","🍓","🍒","🥝",
+  "🍍","🍉","🥥","🍑","🍋","🍐"
+];
+
+  function shuffle(arr) {
+    return arr.sort(() => Math.random() - 0.5);
+  }
+
+  function startGame() {
+    board.innerHTML = "";
+    winMsg.style.display = "none";
+
+    moves = 0;
+    matches = 0;
+    movesEl.textContent = 0;
+    matchesEl.textContent = 0;
+
+    const level = levels[difficultySelect.value];
+    board.className = `game-board ${level.className}`;
+
+    cards = shuffle(
+      symbols.slice(0, level.pairs).flatMap(s => [s, s])
+    );
+
+    cards.forEach(symbol => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.dataset.symbol = symbol;
+      card.addEventListener("click", () => flip(card));
+      board.appendChild(card);
+    });
+  }
+
+  function startTimer() {
+  stopTimer(); 
+  time = 0;
+  timeEl.textContent = time;
+
+  timer = setInterval(() => {
+    time++;
+    timeEl.textContent = time;
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timer);
+}
+
+  function flip(card) {
+  if (lock || card.classList.contains("flipped")) return;
+
+  card.textContent = card.dataset.symbol;
+  card.classList.add("flipped");
+
+  if (!first) {
+    first = card;
+    return;
+  }
+
+  second = card;
+  lock = true;
+  moves++;
+  movesEl.textContent = moves;
+
+  if (first.dataset.symbol === second.dataset.symbol) {
+    matches++;
+    matchesEl.textContent = matches;
+    resetPick();
+
+    if (matches === cards.length / 2) {
+      winMsg.style.display = "block";
+      stopTimer();
+
+      const key = "best_" + difficultySelect.value;
+      const best = Number(localStorage.getItem(key));
+
+      if (!best || moves < best) {
+        localStorage.setItem(key, moves);
+        updateBestScore();
+      }
+    }
+
+  } else {
+    setTimeout(() => {
+      first.textContent = "";
+      second.textContent = "";
+      first.classList.remove("flipped");
+      second.classList.remove("flipped");
+      resetPick();
+    }, 800);
+  }
+}
+
+  
+
+  function resetPick() {
+    [first, second, lock] = [null, null, false];
+  }
+
+startBtn.addEventListener("click", () => {
+  startGame();
+  startTimer();
+  updateBestScore();
+});
+
+  resetBtn.addEventListener("click", startGame);
+  difficultySelect.addEventListener("change", () => {
+    startGame();
+    updateBestScore();
+  });
+document.addEventListener("DOMContentLoaded", updateBestScore);
+
+
 });
