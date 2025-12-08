@@ -443,3 +443,106 @@ img.img-fluid {
   transform: none;
   opacity: 0.7;
 }
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 15px;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.card {
+  height: 80px;
+  background: #003366;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.card.flipped {
+  background: #ffffff;
+  color: #003366;
+  cursor: default;
+}
+
+#game label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #002b55;
+}
+
+#difficulty {
+  padding: 10px 15px;
+  border-radius: 16px;
+  border: 1px solid #c9d8f0;
+  background: #ffffff;
+  font-size: 1rem;
+  color: #003366;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+#difficulty:hover {
+  border-color: #0d6efd;
+}
+
+#difficulty:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 4px rgba(13,110,253,0.25);
+}
+.game-board {
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+}
+
+.game-board.easy {
+  grid-template-columns: repeat(4, 90px);
+}
+
+.game-board.hard {
+  grid-template-columns: repeat(6, 90px);
+}
+
+
+.card {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card.flipped {
+  transform: scale(1.05);
+}
+.card {
+  animation: appear 0.25s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.game-board {
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+}
+
+.game-board.medium {
+  grid-template-columns: repeat(4, 90px);
+}
+
+.game-board.hard {
+  grid-template-columns: repeat(6, 90px);
+}
+
