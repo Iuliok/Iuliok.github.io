@@ -94,6 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
       patogumas: +form.patogumas.value
     };
 
+        console.log("Formos duomenys:", data);
+
+
     output.innerHTML = `
       <div class="info-item">
         <p><strong>Vardas:</strong> ${data.vardas}</p>
@@ -264,3 +267,4 @@ document.addEventListener("DOMContentLoaded", updateBestScore);
 
 
 });
+
